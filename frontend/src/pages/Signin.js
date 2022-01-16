@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FirebaseContext } from "../context/firebase";
 import Header from "../containers/header";
 import Footer from "../containers/footer";
@@ -7,6 +7,7 @@ import { Form } from "../components";
 
 function Signin() {
     let navigate = useNavigate()
+    const {state} = useLocation()
     const firebase = useContext(FirebaseContext)
   const [emailAdress, setEmailAdress] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +20,7 @@ function Signin() {
     try{
         console.log(firebase)
         await firebase.auth().signInWithEmailAndPassword(emailAdress,password)
-       navigate('/browse')
+       navigate(state?.path ||'/browse')
     }catch(error){
         setEmailAdress('')
         setPassword('')
