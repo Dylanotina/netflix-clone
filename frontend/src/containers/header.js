@@ -1,10 +1,16 @@
 import React from 'react'
+import {Header} from '../components'
+import logo from '../logo.svg'
 
-function header() {
+function header({children}) {
     return (
-        <div>
-            
-        </div>
+        <Header>
+            <Header.Frame>
+                <Header.Logo to='/' src={logo} alt='Netflix' />
+                <Header.ButtonLink to='/signin'>Sign In</Header.ButtonLink>
+            </Header.Frame>
+            {children}
+        </Header>
     )
 }
 
