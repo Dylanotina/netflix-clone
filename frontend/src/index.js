@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { GlobalStyles } from './global-styles';
-import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import {app} from './lib/firebase.prod'
+import { FirebaseContext } from "./context/firebase";
+
 
 ReactDOM.render(
-  
-  <BrowserRouter>
+  <FirebaseContext.Provider value={{app}}>
   <GlobalStyles />
     <App />
-  </BrowserRouter>,
+  </FirebaseContext.Provider>,
   document.getElementById("root")
 );
