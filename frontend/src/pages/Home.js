@@ -1,5 +1,8 @@
 import React from 'react'
-import {FaqContainer,JumboContainer,Header,Footer} from '../containers'
+import FaqContainer from '../containers/faq'
+import JumboContainer from '../containers/jumbotron'
+import Header from '../containers/header'
+import Footer from '../containers/footer'
 
 function Home() {
     return (
