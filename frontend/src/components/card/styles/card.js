@@ -76,6 +76,7 @@ export const Image = styled.img`
   height: auto;
   padding: 0;
   margin: 0;
+  border-radius : 5px;
 `;
 
 export const Item = styled.div`
@@ -84,6 +85,7 @@ export const Item = styled.div`
   margin-right: 5px;
   position: relative;
   cursor: pointer;
+
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.3);
