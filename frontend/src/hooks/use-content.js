@@ -8,7 +8,6 @@ export default function useContent( target ) {
   useEffect(() => {
     async function fetchAPI() {
       try {
-        console.log(target)
         let snapshot = await firebase.firestore().collection(target).get();
         let allContent = snapshot.docs.map((contentObj) => ({
           ...contentObj.data(),
