@@ -4,6 +4,7 @@ import { FirebaseContext } from "../context/firebase";
 import { Card, Header, Loading, Player } from "../components";
 import logo from "../logo.svg";
 import FooterContainer from './footer'
+import Fuse from 'fuse.js'
 
 export default function BrowseContainer({ slides }) {
     const [category, setCategory] = useState('series')
@@ -26,6 +27,18 @@ export default function BrowseContainer({ slides }) {
   useEffect(() => {
       setSlideRows(slides[category])
   }, [slides, category])
+
+  useEffect(() => {
+      const fuse =new Fuse(slideRows, {keys : ['data.description', 'data,title', 'data.genre']})
+      const results = fuse.search(searchTerm).map(({item}) => item)
+      if(slideRows.length > 0 && searchTerm.length > 3 && results.length > 0 ){
+          setSlideRows(results)
+      } else{
+          setSlideRows(slides[category])
+      }
+     
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm])
 
   return profile.displayName ? (
     <>
