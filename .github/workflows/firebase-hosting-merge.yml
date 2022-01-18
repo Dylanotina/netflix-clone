@@ -12,7 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses : actions/setup-node@v1 
-      - run:  npm ci && npm run build
+        with :
+          node_version : 12
+      - run: |
+       ls
+       npm ci && npm run build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
