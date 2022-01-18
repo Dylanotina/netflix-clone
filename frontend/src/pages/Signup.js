@@ -38,7 +38,7 @@ function Signup() {
         <>
       <Header>
         <Form>
-          <Form.Title>Sign In</Form.Title>
+          <Form.Title>Sign Up</Form.Title>
           {error && <Form.Error>{error}</Form.Error>}
 
           <Form.Base onSubmit={handleSignUp} method="POST">
@@ -64,7 +64,7 @@ function Signup() {
             </Form.Submit>
           </Form.Base>
           <Form.Text>
-            Already a user? <Form.Link to="/signup">Sign in now.</Form.Link>
+            Already a user? <Form.Link to="/signin">Sign in now.</Form.Link>
           </Form.Text>
           <Form.TextSmall>
             This page is protected by Google reCAPTCHA to ensure you're not a

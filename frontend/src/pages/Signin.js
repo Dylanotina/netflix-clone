@@ -18,7 +18,6 @@ function Signin() {
   const handleSignIn =  async (event) => {
     event.preventDefault();
     try{
-        console.log(firebase)
         await firebase.auth().signInWithEmailAndPassword(emailAdress,password)
        navigate(state?.path ||'/browse')
     }catch(error){
